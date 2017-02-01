@@ -18,6 +18,9 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+# Profile Assets (ignore for testing)
+server/assets
+
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 client/dist/bundle.*
 !.gitignore

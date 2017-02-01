@@ -32,7 +32,6 @@ exports.findAllUsersByCompany = function(company, callback) {
 
 exports.addUser = function(user, callback) {
   model.Users.create(user).then(function(result) {
-    console.log(result);
     callback(result);
   });
 }

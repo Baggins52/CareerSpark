@@ -13,7 +13,7 @@ router.route('/')
      	res.send(data);
      })
   })
-  // posts new user
+  // posts new user, TO DO: Also upload their image to assets
   .post(function(req, res) {
 
     // The request body should look like a user. If using Postman, don't forget to select body as JSON.
@@ -33,9 +33,24 @@ router.route('/')
     // }
 
     var user = req.body;
+    var userImage = req.files.profile;
 
+    // post user to db
     db.addUser(user, function(result) {
-      res.send(result)
+      console.log('INSIDE ADD USER');
+      console.log('files ===> ');
+      console.log(req.files.profile);
+      console.log(result.userId);
+
+      // store profile image in server/assets
+      var userId = result.userId;
+      userImage.mv('server/assets/'+ userId + '.jpg', function(err) {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.send(result);
+        }
+      })
     });
   });
 
