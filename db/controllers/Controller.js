@@ -45,7 +45,6 @@ exports.findUserByUserName = function(username, callback) {
 
 
 exports.findAllUsersByLocation = function(location, callback) {
-
   model.Users.findAll({
     where: {
       location: location
@@ -90,13 +89,39 @@ exports.deleteUser = function(userId, callback) {
 ****/
 
 
+// NOTE: addConnection is the main function currently used by the clinet.
+// First, it checks to see if a pending connection between sourceUser -> targetUser already exists.
+// If it does already exist, it changes pending to false (i.e., accepts the connection)
+// If not, it creates a pending connection.
 exports.addConnection = function(sourceUserId, targetUserId, callback) {
-  model.Connections.create({
-    userUserId: sourceUserId,
-    targetUserId: targetUserId,
-    pending: true
-  }).then(function(result) {callback(result)});
+  // First, check to see if connection is in the DB.
+  model.Connections.findOne({
+    where: {
+      userUserId: sourceUserId,
+      targetUserId: targetUserId
+    }
+  }).then(function(results) {
+    // If it is, update it
+    if (results !== null) {
+      model.Connections.update({
+        pending: false
+      }, {
+        where: {
+          userUserId: sourceUserId,
+          targetUserId: targetUserId
+        }
+      }).then(function(result) {callback(results)});
+    // Otherwise, create the pending request
+    } else {
+      model.Connections.create({
+      userUserId: sourceUserId,
+      targetUserId: targetUserId,
+      pending: true
+    }).then(function(result) {callback(result)});
+    }
+  })
 }
+
 
 exports.acceptConnection = function(connectionId, callback) {
   model.Connections.update({
@@ -142,43 +167,5 @@ exports.getConnections = function(userId, callback) {
   model.Connections.findAll({where:  {userUserId:userId}})
     .then(function(result) {callback(result)});
 }
-
-exports.deleteConnection = function(userId, connectionId, callback) {
-  model.Connections.destroy({where:{userUserId:userId, ConnectionUserId: connectionId}})
-    .then(function(deleted) {callback(deleted)});
-}
-exports.addConnection = function(myUserId, otherPersonId, callback) {
-  model.Connections.create({userUserId: myUserId,
-    ConnectionUserId: otherPersonId})
-      .then(function(result) {callback(result)}).catch(function(err) {});
-}
-
-exports.addConnection = function(myUserId, otherPersonId, callback) {
-  model.Connections.create({userUserId: myUserId,
-    ConnectionUserId: otherPersonId})
-      .then(function(result) {callback(result)}).catch(function(err) {console.log('54', err)});
-}
-
-exports.addConnection = function(myUserId, otherPersonId, callback) {
-  model.Connections.create({userUserId: myUserId,
-    ConnectionUserId: otherPersonId})
-      .then(function(result) {callback(result)}).catch(function(err) {console.log('54', err)});
-}
-
-exports.getConnections = function(userId, callback) {
-  model.Connections.findAll({where:  {userUserId:userId}})
-    .then(function(result) {callback(result)});
-}
-
-exports.deleteConnection = function(userId, connectionId, callback) {
-  model.Connections.destroy({where:{userUserId:userId, ConnectionUserId: connectionId}})
-    .then(function(deleted) {callback(deleted)});
-}
-
-exports.getConnections = function(userId, callback) {
-  model.Connections.findAll({where:  {userUserId:userId}})
-    .then(function(result) {callback(result)});
-}
-
 
 

@@ -6,11 +6,12 @@ var db = require('../../db/controllers/Controller.js');
 router.route('/')
   // returns all connections
   .get(function(req, res) {
-     db.getAllConnections(function(data) {
-     	res.send(data);
+      db.getAllConnections(function(data) {
+     	  res.send(data);
      })
   })
   // posts new connection, and returns it. *TO DO: error handling (e.g., when connection already exists)
+  // KG: TO DO: if connection is not in DB, it creates it as pending. If it is already in DB, it accepts it.
   .post(function(req, res) {
   	console.log('HANDLING POST REQUEST');
 
@@ -20,7 +21,13 @@ router.route('/')
     console.log(userId1)
     console.log(userId2)
   	db.addConnection(userId1,userId2, function(result) {
-  		res.send(result.dataValues)
+  		if (result === null) {
+        console.log(null)
+        res.send(null)
+      } else {
+      console.log(result.dataValues);
+      res.send(result.dataValues)
+      }
   	})
   	
   });
