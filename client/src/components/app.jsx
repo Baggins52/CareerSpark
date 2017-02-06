@@ -37,17 +37,9 @@ export default class App extends React.Component {
     })
   }
 
-  getImages() {
-    // console.log('39');
-    // $.ajax({
-    //   url:
-    // })
-
-  }
 
   // Dev Note: right now, we are hardwireing User1 as user to get on mount
-
-  componentWillMount() {
+  componentDidMount() {
     this.getUserInfo(1)
   }
 
