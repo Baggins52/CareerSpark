@@ -27,6 +27,8 @@ export default class PendingConnectionsViewEntry extends React.Component {
     //hide the 2 table rows associated with the user
     this.setState({'display': 'none'});
     this.state.acceptedUsers.push(this.props.user);
+    alert('Match! Here is ' + 
+    this.props.user.firstName +'\'s number ' + this.props.user.phone);
     console.log('acceptedUsers: ',this.state.acceptedUsers);
   }
 
