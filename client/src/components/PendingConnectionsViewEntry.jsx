@@ -31,6 +31,7 @@ export default class PendingConnectionsViewEntry extends React.Component {
   }
 
   render() {
+  {/*current table setup throws an error if the following isn't saved into a variable before returning*/}
   	var pendingUserEntry = (
     <div style={{display: this.state.display}}>
   	  <tr className="pendingRow">
@@ -49,19 +50,25 @@ export default class PendingConnectionsViewEntry extends React.Component {
       <tr>
         <td>
           <a href="#">
-            <img className="pendingReject"
-                 onClick={this.handleReject.bind(this)}
-                 src="./images/red-x.png"
-                 alt={this.props.user.firstName + ' ' + this.props.user.lastName} />
+            <img 
+              className="pendingReject"
+              onClick={this.handleReject.bind(this)}
+              src="./images/red-x.png"
+              alt={this.props.user.firstName + ' ' + this.props.user.lastName}
+            />
           </a>
-          <img className="pendingPhoto"
-               src={this.props.user.profileImageUrl}
-               alt={this.props.user.firstName + ' ' + this.props.user.lastName} />
+          <img 
+            className="pendingPhoto"
+            src={this.props.user.profileImageUrl}
+            alt={this.props.user.firstName + ' ' + this.props.user.lastName}
+          />
           <a href="#">
-            <img className="pendingApprove"
-                 onClick={this.handleAccept.bind(this)}
-                 src="./images/green-check.png"
-                 alt={this.props.user.firstName + ' ' + this.props.user.lastName} />
+            <img 
+              className="pendingApprove"
+              onClick={this.handleAccept.bind(this)}
+              src="./images/green-check.png"
+              alt={this.props.user.firstName + ' ' + this.props.user.lastName}
+            />
           </a>
         </td>
   	  </tr>

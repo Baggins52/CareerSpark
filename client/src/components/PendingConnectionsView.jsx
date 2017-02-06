@@ -17,7 +17,7 @@ export default class PendingConnectionsView extends React.Component {
 	  ))
 
   	return (
-  	  <div>
+  	  <div id="pendingConnectionsViewContainer">
         <table id="pendingConnectionsView">
           <tr>
         	  <th id="pendingConnectionsHeader">Pending Connections</th>

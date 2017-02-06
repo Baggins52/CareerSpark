@@ -1,11 +1,10 @@
 import React from 'react';
 import Header from './Header.jsx';
-import User from './User.jsx';
-import UserEntryView from './UserEntryView.jsx';
 import Nav from './Nav.jsx';
 import PendingConnectionsView from './PendingConnectionsView.jsx';
-import $ from 'jquery';
+import SuggestedConnectionsView from './SuggestedConnectionsView.jsx';
 import mockData from '../mockData.js';
+import $ from 'jquery';
 
 
 export default class App extends React.Component {
@@ -72,10 +71,12 @@ export default class App extends React.Component {
         <Nav />
 
         <PendingConnectionsView users={mockData.pendingConnectionsIncoming} />
-
-        {dataFetched ? <UserEntryView user={this.state} />: ''}
-        <button onClick={()=>{console.log(this.state)}}>console log state</button>
-      </div>
+        <SuggestedConnectionsView users={mockData.suggestedConnections} />
+        {/* //uses ajax to check if data was received */}
+        {/*{dataFetched ? <SuggestedConnectionsView user={this.state} />: ''}
+        {console.log('this.state.dataFetched: ', this.state.dataFetched)}*/}
+        {/*<button onClick={()=>{console.log(this.state)}}>console log state</button>*/}
+      </div> 
     )
   }
 }

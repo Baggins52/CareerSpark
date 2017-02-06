@@ -1,5 +1,5 @@
 import React from 'react';
-import dummyData from './dummyConnections.js';
+import mockData from '../mockData.js';
 import ConnectionsViewEntry from './ConnectionsViewEntry.jsx';
 
 export default class ConnectionsView extends React.Component {
@@ -12,12 +12,12 @@ export default class ConnectionsView extends React.Component {
   }
 
   render() {
-  	var contactList = dummyData.map((user, idx) => (
+  	var contactList = mockData.acceptedConnections.map((user, idx) => (
 	    <ConnectionsViewEntry user={user} key={idx} />
 	  ))
 
   	return (
-  	  <div id="connectionsViewContainer">
+  	  <div>
         <table id="connectionsView">
           <tr>
         	  <th>Connections</th>

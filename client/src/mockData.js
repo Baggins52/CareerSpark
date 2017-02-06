@@ -19,7 +19,7 @@ exports.acceptedConnections = [
       company: 'Lehman Brothers',
       field: 'finance',
       tagline: 'help me find a job',
-      username: 'jim',
+      username: 'jim1481',
       password: 'jones',
       profileImageUrl: 'http://facts.be/app/uploads/David-Hasselhoff-face.jpg'},
 
@@ -30,9 +30,20 @@ exports.acceptedConnections = [
       company: 'Virginia Co.',
       field: 'tea',
       tagline: 'need a new boss',
-      username: 'John',
+      username: 'John_Smith18',
       password: 'Smith',
       profileImageUrl: 'https://www.biography.com/.image/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzOTc0MTk1NzI0/john-smith-9486928-1-402.jpg'},
+
+  {firstName: 'Mick',
+      lastName: 'Jagger',
+      phone: '0105463434',
+      location: 'UK',
+      company: 'Rolling Stones',
+      field: 'entertainment',
+      tagline: 'this is cool',
+      username: 'MickJ19',
+      password: 'Jagger',
+      profileImageUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxMTY4NTQ5N15BMl5BanBnXkFtZTcwMTY0NDk4Mw@@._V1_UY317_CR13,0,214,317_AL_.jpg'}
 ];
 
 exports.suggestedConnections =[
@@ -42,10 +53,21 @@ exports.suggestedConnections =[
       location: 'SF',
       company: 'Home Improvement',
       field: 'tools',
-      tagline: 'help me find a job',
-      username: 'Tim',
+      tagline: 'Handyman',
+      username: 'Tim1409',
       password: 'Taylor',
       profileImageUrl: 'http://www.sonic1029.com/wp-content/blogs.dir/3/files/TIMTAYLOR.png'},
+
+  {firstName: 'Alex',
+      lastName: 'Trebek',
+      phone: '5155463434',
+      location: 'Hollywood',
+      company: 'MGM',
+      field: 'entertainment',
+      tagline: 'daily doubler',
+      username: 'Alex',
+      password: 'Trebek',
+      profileImageUrl: 'http://vignette3.wikia.nocookie.net/gameshows/images/0/0e/Alex-trebek-mustache.jpg/revision/latest?cb=20140102041845'},
 
   {firstName: 'George',
       lastName: 'Foreman',
@@ -57,17 +79,6 @@ exports.suggestedConnections =[
       username: 'George',
       password: 'Foreman',
       profileImageUrl: 'http://cdn.images.express.co.uk/img/dynamic/130/590x/George-Foreman-525485.jpg'},
-
-       {firstName: 'Alex',
-      lastName: 'Trebek',
-      phone: '5155463434',
-      location: 'Hollywood',
-      company: 'MGM',
-      field: 'entertainment',
-      tagline: 'daily doubler',
-      username: 'Alex',
-      password: 'Trebek',
-      profileImageUrl: 'http://vignette3.wikia.nocookie.net/gameshows/images/0/0e/Alex-trebek-mustache.jpg/revision/latest?cb=20140102041845'},
 
   {firstName: 'Michael',
       lastName: 'James',
@@ -89,7 +100,7 @@ exports.pendingConnectionsIncoming = [
       company: 'Rolling Stones',
       field: 'entertainment',
       tagline: 'this is cool',
-      username: 'Mick',
+      username: 'MickJ19',
       password: 'Jagger',
       profileImageUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxMTY4NTQ5N15BMl5BanBnXkFtZTcwMTY0NDk4Mw@@._V1_UY317_CR13,0,214,317_AL_.jpg'},
 
@@ -124,7 +135,7 @@ exports.pendingConnectionsIncoming = [
       tagline: 'never gonna give you up',
       username: 'Rick',
       password: 'Astley',
-      profileImageUrl: 'http://i234.photobucket.com/albums/ee136/suwarnaadi/hair/rick-astley-80s-hairstyle.jpg'}
+      profileImageUrl: 'http://i234.photobucket.com/albums/ee136/suwarnaadi/hair/rick-astley-80s-hairstyle.jpg'},
 ];
 
 
