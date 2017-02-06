@@ -122,7 +122,6 @@ exports.addConnection = function(sourceUserId, targetUserId, callback) {
   })
 }
 
-
 exports.acceptConnection = function(connectionId, callback) {
   model.Connections.update({
     pending: false,

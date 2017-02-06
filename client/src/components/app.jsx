@@ -25,15 +25,8 @@ export default class App extends React.Component {
     var context = this;
     // this callback will take the data returned from the GET request, and setState with it.
     var callback = function(data) {
-      context.setState({
-        user: data.user,
-        acceptedConnections: mockData.acceptedConnections,
-        pendingConnectionsIncoming: mockData.pendingConnectionsIncoming,
-        pendingConnectionsOutgoing: mockData.pendingConnectionsOutgoing,
-        suggestedConnections: mockData.suggestedConnections,
-        dataFetched:true
-      }, function() {
-      });
+      console.log('GET request successful');
+      context.setState(data);
     };
     // makes request to our server, and sets state through the callback
     $.ajax({
