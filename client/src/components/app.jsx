@@ -37,6 +37,30 @@ export default class App extends React.Component {
     })
   }
 
+  // if connection already exists, updates pending status to false. Otherwise, creates pending connection.
+  // note: still hard-wireing in User 1 below
+  offerOrAcceptConnection(sourceUserId, targetUserId) {
+    var context = this;
+    var callback = function(){
+      getUserInfo(1)
+    };
+
+    $.ajax({
+      url: 'http://localhost:3000/api/connections/' + userId,
+      method: "POST",
+      data: {
+        sourceUserId: sourceUserId,
+        targetUserId: targetUserId
+      }
+      success: callback,
+      error: () => console.error('database error')
+    })
+  }
+
+  handleUserConnection() {
+    //TO DO NEXT
+  }
+
 
   // Dev Note: right now, we are hardwireing User1 as user to get on mount
   componentDidMount() {
